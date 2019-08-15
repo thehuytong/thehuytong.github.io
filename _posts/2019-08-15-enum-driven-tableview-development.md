@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Enum-Driven TableView Development
 subtitle: >-
   Trong tutorial, bạn sẽ học cách sử dụng Swift enums để handle các states khác
