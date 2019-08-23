@@ -112,3 +112,31 @@ Lớp `DataManager` không còn chịu trách nhiệm khởi tạo lớp `Reques
 # **Bạn nhận được gì**
 
 Tôi hy vọng rằng các ví dụ tôi đã chỉ ra ít nhất đã thu hút sự chú ý của bạn. Hãy để tôi liệt kê thêm một vài lợi ích của dependency injection.
+
+### Sự minh bạch
+
+### Testing
+
+Unit testing sẽ rất dễ dàng hơn với dependency injection. Dependency injection giúp dễ dàng thay thế các phụ thuộc của đối tượng bằng các đối tượng mock, giúp unit testing dễ dàng hơn để thiết lập và cách ly hành vi.
+
+Trong ví dụ này, chúng ta định nghĩa một lớp `MockSerializer`. Vì nó tuân thủ protocol `Serializer`, chúng ta có thể gán nó cho thuộc tính `serializer` của view controller.
+
+```swift
+class MockSerializer: Serializer {
+
+    func serialize(data: AnyObject) -> NSData? {
+        ...
+    }
+
+}
+```
+
+```swift
+// Initialize Data Manager
+let dataManager = DataManager()
+
+// Configure Data Manager
+dataManager.serializer = MockSerializer()
+```
+
+
